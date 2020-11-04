@@ -1,24 +1,24 @@
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', () => {
 
     const select = document.querySelector("#city");
     const result = document.getElementById('result');
     const API_KEY = '3a15fc798cc96d3c1fcdd4981e00ea85';
 
-    const asyncWeather = function () { //天気の情報をAPIで取得しノードに追加する機能
+    const asyncWeather = () => { //天気の情報をAPIで取得しノードに追加する機能
         const cityName = select.value;
         const url = "http://api.openweathermap.org/data/2.5/weather?lang=ja&units=metric&q=" + cityName + "&appid=" + API_KEY;
         const xhr = new XMLHttpRequest();
         xhr.open('GET', url, true);
         xhr.responseType = 'json'; //結果をjson型で受け取る
 
-        xhr.addEventListener('loadstart', function () {
+        xhr.addEventListener('loadstart', () => {
             result.textContent = '通信中...';
         }, false);
-        xhr.addEventListener('load', function () {
+        xhr.addEventListener('load', () => {
             result.textContent = '';
             const ul = document.createElement('ul');
             const frag = document.createDocumentFragment();
-            const weather = this.response;
+            const weather = xhr.response;
 
             const weatherInfo = {
                 '都市': weather['name'],
@@ -49,13 +49,13 @@ document.addEventListener('DOMContentLoaded', function () {
             result.appendChild(ul);
         })
         xhr.send();
-        xhr.addEventListener('error', function () {
+        xhr.addEventListener('error', () => {
             result.textContent = 'サーバーエラーが発生しました';
         }, false);
     };
 
     asyncWeather(); //選択がデフォルトの時
-    select.addEventListener('change', function () { //選択が変わった時
+    select.addEventListener('change', () => { //選択が変わった時
         asyncWeather();
     })
 }, false);
