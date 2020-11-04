@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 imgName: weather["weather"][0]["icon"] + ".png"
             };
             for (const key in weatherInfo) {
-                if (weatherInfo[key] !== weatherInfo['imgName']) {
+                if (key !== 'imgName') {
                     // weatherInfoを都度リストにしfragに一旦仮入れ
                     const li = document.createElement('li');
                     const text = document.createTextNode(key + ': ' + weatherInfo[key]);
