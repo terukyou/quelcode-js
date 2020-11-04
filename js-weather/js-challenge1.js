@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }, false);
         xhr.addEventListener('load', function () {
             result.textContent = '';
-            ul = document.createElement('ul');
+            const ul = document.createElement('ul');
             const frag = document.createDocumentFragment();
             const weather = this.response;
 
