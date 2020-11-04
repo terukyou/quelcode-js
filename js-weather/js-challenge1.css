@@ -1,0 +1,15 @@
+.main{
+    margin: 0 auto ;
+    width: 700px;
+    height: 100%;
+}
+#result{
+    display: flex;
+}
+img{
+    height: 100px;
+    padding-right: 10px;
+}
+li{
+    list-style: none;
+}
