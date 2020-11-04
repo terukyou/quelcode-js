@@ -55,9 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     asyncWeather(); //選択がデフォルトの時
-    select.addEventListener('change', () => { //選択が変わった時
-        asyncWeather();
-    })
+    select.addEventListener('change', asyncWeather); //選択が変わった時
 }, false);
 
 
