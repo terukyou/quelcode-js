@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-
     const select = document.querySelector("#city");
     const result = document.getElementById('result');
     const API_KEY = '3a15fc798cc96d3c1fcdd4981e00ea85';
@@ -57,6 +56,3 @@ document.addEventListener('DOMContentLoaded', () => {
     asyncWeather(); //選択がデフォルトの時
     select.addEventListener('change', asyncWeather); //選択が変わった時
 }, false);
-
-
-
